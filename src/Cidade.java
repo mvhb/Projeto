@@ -10,14 +10,14 @@ public class Cidade {
   //nome da cidade
   public String nome;
 
-  //link da cidade adjacente
+  //nome da cidade
+  public String nomedacidade = "Varginha";
+
+  //link da cidade adjacente (cidade próxima)
   public final HashSet<Link> links = new HashSet<Link>();
 
   //menor distancia
   public int distancia;
-
-  //menor caminho percorrido
-  public Link linkPai;
 
   /* contrutor para Cidade com um nome
    * adicionado a tabela (HashMap) de cidades
@@ -28,7 +28,7 @@ public class Cidade {
   }
 
   /* Método para encontrar uma cidade pelo nome
-   * retorna a cidade se ela existir na tabela
+   * retorna a cidade se ela existir na tabela (HashMap)
    * caso contrário retorna uma nova cidade com o nome informado
    */
   public static Cidade encontrar(String nm) {
@@ -40,16 +40,17 @@ public class Cidade {
     return p;
   }
 
-  /* adiciona um link entre cidades na lista de links
+  /* adiciona um link entre duas cidades na lista de links
    */
   public void addLink(Link lnk) {
     links.add(lnk);
   }
 
   /* compare cidades pelos seus nomes
-   * returna negativo se c1 for alfabeticamente anterior,
-   *  0 se os nomes forem os menos,
-   *  e positivo se c2 for alfabeticamente maior
+   * returna negativo se c1 for alfabeticamente menor,
+   *  0 se os nomes forem os mesmos,
+   *  e positivo se c2 for alfabeticamente menor
+   * Exemplo: c1=Recife / c2=Olinda - return positivo, porque Olinda é menor que Recife, porque O vem antes de R.
    */
   public int comparaNome(Cidade p) {
     return p.nome.compareTo(p.nome);
@@ -58,11 +59,16 @@ public class Cidade {
   /* returna o nome da cidade
    */
   public String toString() {
-    return nome;
+    return nomedacidade;
   }
 
-  /* compara cidades pela sua distancia até a rede de trens (ponto 0)
-   * returna negativo se c1 for mais próxima, 0 se a distancia for a mesma, e positivo se c2 for mais próxima
+  /* compara duas cidades pela sua distancia até um ponto específico
+   * returna negativo se c1 for mais próxima do ponto, 0 se a distancia for a mesma, e positivo se c2 for mais próxima do ponto
+   * Por exemplo:
+   * - Ponto específico: Praia de Boa Viagem
+   * - c1= Recife
+   * - c2 = Maceió
+   * - return negativo (-1), pois Recife é mais próxima do ponto de referencia: Boa Viagem.
    */
   public int comparaDistancia(Cidade c1, Cidade c2) {
     return c1.distancia - c2.distancia;

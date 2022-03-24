@@ -3,10 +3,15 @@ import java.util.Comparator;
 /* Compare two cidades for use in sorting or data structures
  */ 
 public class ComparadorCidade implements Comparator<Cidade> {
-  /* compare cidades by their distancia from the start of the rail network
-   * return: negative if c1 is closer to 0, 0 if equal distancia, positive if c2 is closer to 0
+  /* compara duas cidades pela sua distancia até um ponto específico
+   * returna negativo se c1 for mais próxima do ponto, 0 se a distancia for a mesma, e positivo se c2 for mais próxima do ponto
+   * Por exemplo:
+   * - Ponto específico: Praia de Boa Viagem
+   * - c1= Recife
+   * - c2 = Maceió
+   * - return negativo (-1), pois Recife é mais próxima do ponto de referencia: Boa Viagem.
    */
   public int compare(Cidade x, Cidade y) {
-    return x.comparaDistancia(y,x);
+    return x.comparaDistancia(x,x);
   }
 }
