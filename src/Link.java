@@ -7,7 +7,7 @@ public class Link implements Comparable<Link> {
   public boolean usado = false;
 
   /* Dado que duas cidades sao recebidas
-   * o método constrtor cria um Link entre a primeira cidade e a segunda cidade com um tamanho específico
+   * o método construtor cria um Link entre a primeira cidade e a segunda cidade com um tamanho específico
    * As cidades são comparadas ALFABETICAMENTE e criadas no link em ordem alfabética
    * o link é criado entre as duas cidades
    * Exemplo de comparação Alfabética entre cidades: Camaragibe>Recife, porque C vem antes de R
@@ -42,18 +42,17 @@ public class Link implements Comparable<Link> {
   }
 
   /* returna uma string com a descrição de um Link entre cidades.
-   * exemplo "Cidade1 3 Cidade2", onde 3 é o tamanho do link.
-   * O nome das cidades tem de vir em ordem alfabética, exemplo, Olinda vem antes de Recife
+   * exemplo Link formado por Cidade1, tamanho 3 e Cidade2, retorna "Cidade1 3 Cidade2".
    */
   public String toString() {
     return cidade1.toString() + " " + cidade2.toString();
   }
 
-  /* Compara dois links para saber se são o mesmo caminho
+  /* Compara dois links para saber o que eles tem em comum
    * returna 0 se os links tiverem as mesmas cidade1 e cidade2
-   * returna negativo se this.cidade1 < l.cidade1
+   * returna negativo se this.cidade1 < l.cidade1 (Alfabetcamente)
    * retorna negativo se cidade1 é igual nos dois links
-   * retorna negativo se this.cidade2 < l.cidade2
+   * retorna negativo se this.cidade2 < l.cidade2 (Alfabetcamente)
    * retorna positivo caso contrário
    * Exemplo: Link1: Recife 3 Olinda / Link2: Recife 2 Camaragibe
    * Link1.compareTo(Link2) -> Resultado: retorna negativo, porque cidade1 é Recife e é igual nos dois Links

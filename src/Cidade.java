@@ -41,6 +41,7 @@ public class Cidade {
   }
 
   /* adiciona um link entre duas cidades na lista de links
+   * Exemplo: Para criar um link entre Recife e Olinda eu preciso adicionar pelo pelos as cidades de Recife e Olinda
    */
   public void addLink(Link lnk) {
     links.add(lnk);
@@ -56,7 +57,7 @@ public class Cidade {
     return p.nome.compareTo(p.nome);
   }
 
-  /* returna o nome da cidade
+  /* retorna a String do nome de uma cidade. Por exemplo cidade1.ToString retorna "Recife", se o objeto da classe cidade for Recife
    */
   public String toString() {
     return nomedacidade;
